@@ -12,11 +12,11 @@ router.get('/', function(req, res) {
       uri: req.query.url,
       headers: headers
     }, function (error, response, body) {
-      console.log(response.statusCode);
-      if (!error && response.statusCode == 200) {
-        
+      if (error || !response) {
+        res.render('index', { url: '', output: 'Error' });
+      } else {
+        res.render('index', { url: req.query.url, output: JSON.stringify(response.headers) });
       }
-      res.render('index', { url: req.query.url, output: JSON.stringify(response.headers) });
     });
   } else {
     res.render('index', { url: '' });
