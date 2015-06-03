@@ -1,2 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<html>
+  <head>
+    <script>
+    var app = {
+      url: '{{url}}'
+    };
+    </script>
+    <script language="javascript" type="text/javascript" src="javascripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="javascripts/app.js"></script>
+  </head>
+  <body>
+    <h1>CORS Inspector</h1>
+    <form method="get" target="/">
+      <p>
+        URL: <input type="text" name="url" size="50" value="{{url}}" style="padding:10px;font-size: 20px;" />
+      </p>
+      <h3>Client Request Response</h3>
+      <div id="client-output"></div>
+      <h3>Server Request Response</h3>
+      <div>
+      {{output}}
+      </div>
+    </form>
+  </body>
+</html>
